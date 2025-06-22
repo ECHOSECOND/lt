@@ -28,22 +28,24 @@ public class sanshuzhihe {
         // 排序 并且 避免使用重复元素 已经保证了最终的各个结果是不重复的
         // 对于排序的数组 计算两树之和 可以用 双指针的方式
         List<List<Integer>> result = new ArrayList<>();
-        Arrays.sort(nums);
+        Arrays.sort(nums); // 1. arrays.sort会对原数组排好序
 
         for (int i = 0; i < nums.length; i++) {
             // 排序后 i-1已经把i（如果两个元素相同）的情况给遍历一遍了，没必要再来一次，不然会造成重复。
 
             // nums[i]，nums[left]，nums[right]
-            // 1. a去重。避免重复
+            // 2. a去重。避免重复 1 1 2 3 前面的1已经把所有情况穷举过了。
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
+            // 3. 剩下的两个 排好序的情况下 可以双指针找两数之和。
 //            双指针法一定要排序
             // 由于数组有序 使用双指针
             int left = i + 1;
             int right = nums.length - 1;
             int target = 0 - nums[i];
             while (left < right) {
+                // 5. 分三种情况来编写 双指针的移动情况。
                 if (nums[left] + nums[right] == target) {
                     List<Integer> res = new ArrayList<>();
                     res.add(nums[i]);
@@ -51,8 +53,9 @@ public class sanshuzhihe {
                     res.add(nums[right]);
                     result.add(res);
                     // 为了避免 -2 -2 4 4 这种重复元素。 left和right的去重
-                    // 2. 我们要求最后三元组整体不能重复。所以 -2 和 4 叠加为0后，left++，right++还会选择-2和4
+                    // 4. 也就是虽然元素已经没有重复使用了。但是 我们要求最后三元组整体不能重复。所以 -2 和 4 叠加为0后，left++，right++还会选择-2和4
                     // 造成整体重复
+                    // 也就是元素没有重复使用的情况下 进行进一步的去重。
                     while (left < right && nums[left] == nums[++left])
                         ;
                     while (left < right && nums[right] == nums[--right])
