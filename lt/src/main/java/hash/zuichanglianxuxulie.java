@@ -13,9 +13,16 @@ public class zuichanglianxuxulie {
      */
     // 最长连续序列
     public int longestConsecutive(int[] nums) {
+
+        // 1. 如果要使用 o(n)或者o(1) 往往要借助map 用空间节约时间
+
+        // 2. 找连续数字，找最小的左边界。先用map拿到了所有数字，如果 nums[nums[i]-1] 存在说明有更小的
+        // 继续去找就行，如果nums[nums[i]-1] 不存在 说明当前元素是最小的。开始从该元素找连续序列！
+
         Map<Integer, Integer> numsMap = new HashMap<>();
         int max = 0;
         for (int num : nums) {
+            // 3. 使用map存储元素 要么是 put(num,num) 要么是put(num,i) 放元素或者放序号
             numsMap.put(num, num);
         }
         // 最长 可以考虑 从左边界找起

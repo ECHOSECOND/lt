@@ -1,5 +1,10 @@
 package hash;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class twosum1 {
 
     /**
@@ -36,9 +41,33 @@ public class twosum1 {
      * @return
      */
 
+
+    /**
+     * note:
+     *
+     * 两数之和 和 回溯里面的组合问题 本质上都是元素之间的关系/组合 关系 1、2 和 2、1是一样的，所以是不重复的
+     * 当然元素也是不能重复使用的。
+     * 这种往往：
+     * 1. 通过hash天然可以使用 去重。遍历某元素，它只能看它之前的元素是否存在。那么关系只会是一份
+     * 2. 要么暴力遍历时， 两层for循环，第一层是i，第二层只能从i+1开始
+     * 3. 要么类似回溯，选择i时 下一层递归 只能是i+1 如果只有两层那就是 2的情况[两层循环就是回溯组合个数为2的情况]
+     * 4.三层那就是 三个元素关系/组合了
+     *
+     * 5.元素能重复使用，那么关系/组合一定要是重复的，那就成了排列！
+     *
+    */
+
+    /**
+     * 6. 使用map这种，是i跟i之前的元素关系，使用map 代替了 第二层的for循环。
+     * 两层嵌套for循环 第一层i 第二层i+1 或者 回溯【递归的for循环】是i跟i+1之后的元素关系
+     * 
+     * 两者效果一样，本质上都是寻找两个数的组合关系！！！
+     */
+
     public int[] twoSum0(int[] nums, int target) {
         Map<Integer, Integer> numsMap = new HashMap();
         int[] result = new int[2];
+        // 2.从0开始
         for(int i=0;i<nums.length;i++){
             int num = nums[i];
             if(numsMap.containsKey(target-num)){
@@ -47,6 +76,7 @@ public class twosum1 {
                 result[1]= i;
                 break;
             }
+            // 1. 必做的操作 要设置map的k、v值
             numsMap.put(num, i);
         }
         return result;

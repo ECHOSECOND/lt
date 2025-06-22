@@ -31,10 +31,14 @@ public class sanshuzhihe {
         Arrays.sort(nums);
 
         for (int i = 0; i < nums.length; i++) {
-            // 避免重复
+            // 排序后 i-1已经把i（如果两个元素相同）的情况给遍历一遍了，没必要再来一次，不然会造成重复。
+
+            // nums[i]，nums[left]，nums[right]
+            // 1. a去重。避免重复
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
+//            双指针法一定要排序
             // 由于数组有序 使用双指针
             int left = i + 1;
             int right = nums.length - 1;
@@ -46,7 +50,9 @@ public class sanshuzhihe {
                     res.add(nums[left]);
                     res.add(nums[right]);
                     result.add(res);
-                    // 为了避免 -2 -2 4 4 这种重复元素
+                    // 为了避免 -2 -2 4 4 这种重复元素。 left和right的去重
+                    // 2. 我们要求最后三元组整体不能重复。所以 -2 和 4 叠加为0后，left++，right++还会选择-2和4
+                    // 造成整体重复
                     while (left < right && nums[left] == nums[++left])
                         ;
                     while (left < right && nums[right] == nums[--right])
