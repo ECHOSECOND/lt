@@ -55,8 +55,6 @@ public class huadongchuangkouzuidazhi {
 
             // 2. 优先级队列 add 和 peek、poll
 
-            // 3. 真正的栈方法？
-
             PriorityQueue<int[]> queue = new PriorityQueue<>(new Comparator<int[]>() {
                 @Override
                 public int compare(int[] o1, int[] o2) {

@@ -33,6 +33,9 @@ public class zuixiaofugaizichuan {
                         valid = false;
                     }
                 }
+
+                // 3. 每加入一个元素【字串变长】看看是否覆盖。 覆盖了 满满缩小窗口 找最小能覆盖的！！！
+
                 while (valid) {
                     // 计算子串
                     String sonStr = s.substring(left, right + 1);
