@@ -92,6 +92,7 @@ public class suoyouzimuyiweici {
     }
 
 
+    // 判断相等关系确实要遍历大的map，包含关系是遍历小的
     // 需要每个字符的count相同 认为 窗口的字符串相同。
     private boolean computeWindow(Map<Character, Integer> swindow, Map<Character, Integer> pwindow) {
         for (Map.Entry<Character, Integer> entry : swindow.entrySet()) {
@@ -105,6 +106,7 @@ public class suoyouzimuyiweici {
         }
         return true;
     }
+
 
     public static void main(String[] args) {
         String s = "cbaebabacd";

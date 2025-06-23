@@ -1,4 +1,4 @@
-package huadongchuangkou;
+package zichuan;
 
 public class heweikdezishuzu {
     public int subarraySum(int[] nums, int k) {
