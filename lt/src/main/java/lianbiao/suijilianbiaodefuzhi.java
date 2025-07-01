@@ -6,6 +6,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class suijilianbiaodefuzhi {
+
+    /**
+     * 第一种思路 是先借助 hash表
+     *
+     * 存储的是原节点跟clone节点的关系。这种好理解些。
+     *
+     * 然后遍历原链表。 从map取复制的链表，包括 random链表
+     *
+     * 为什么不能一次性复制节点的同时复制random？因为复制random时random指向的节点可能在后面，还没复制到。
+     *
+     * 所以先走一遍复制逻辑，才能在第二次迭代里面处理random
+     *
+     * @param head
+     * @return
+     */
+
     public ListNode copyRandomList(ListNode head) {
         // 方法二 使用map存储的方法 map会同时存储着random
         // map记录原节点和复制节点的关系；自然random节点也会对应复制的random节点关系
@@ -60,6 +76,8 @@ public class suijilianbiaodefuzhi {
         }
 
         /**
+         * 第二种思路 不借助额外的空间 通过三步，先复制、挂靠；其次是 设置random；最后是 分离
+         *
          * 原链表：
          * A -> B -> C -> D
          * |    |    |    |
