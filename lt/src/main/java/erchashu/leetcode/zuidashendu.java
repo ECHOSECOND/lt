@@ -70,5 +70,26 @@ public class zuidashendu {
         return Math.max(maxDepth2(root.left), maxDepth2(root.right)) + 1;
     }
 
+    // 我们寻求一种求深度的通用写法
+    public int maxDepth3(TreeNode root) {
+        if(root ==null){ // 单独处理root节点
+            return 0;
+        }
+        maxDepth30(root, 1);
+        return maxDepth;
+    }
+
+    private void maxDepth30(TreeNode root, int depth) {
+        if (root == null) {
+            return;
+        }
+        // depth表明这一层的高度
+        if (maxDepth < depth) {
+            maxDepth = depth;
+        }
+        maxDepth30(root.left, depth + 1); // depth+1是为了不影响right节点 不然需要回溯
+        maxDepth30(root.right, depth + 1);
+    }
+
 
 }
