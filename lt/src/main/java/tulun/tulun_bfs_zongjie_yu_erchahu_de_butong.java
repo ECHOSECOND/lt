@@ -1,6 +1,6 @@
 package tulun;
 
-public class tulun_bfs {
+public class tulun_bfs_zongjie_yu_erchahu_de_butong {
     /**
      * 1. bfs可以图中解决从 A节点到B节点的最短路径
      *
@@ -41,5 +41,13 @@ public class tulun_bfs {
      *             visited.add(neighbor);  // ✅ 防止重复入队
      *         }
      *     }
+     *
+     *     注意 与 二叉树不一样， 图的 bfs 遍历 也需要 visited来标记是否加入了。
+     *
+     *     不然有可能加入了重复了，这样 再poll的时候去判断，会增加复杂度！！
+     *
+     *     所以 图遍历 无论是 dfs 还是 bfs 都需要 visited！！！！
+     *
+     *
      */
 }

@@ -69,4 +69,48 @@ public class tulun_zifuchuan_jielong_bfs {
             return 0;
         }
 
+        // bfs2 采用 bfs 常规的方法 我们是 循环 整个层，不是靠 null 来区分层
+
+    public static int bfs2(String beginStr, String endStr, List<String> wordList) {
+        Set<String> dict = new HashSet<>(wordList);  // 字典集合
+        Set<String> visited = new HashSet<>();       // 已访问节点
+        Queue<String> queue = new LinkedList<>();
+        queue.offer(beginStr);
+        visited.add(beginStr);
+        int level = 1;  // 当前层级（起始单词算第一层）
+
+        while (!queue.isEmpty()) {
+
+            // 1.通过获取 queue.size 来处理这一层。
+
+            // 2. 也需要visted！！！避免处理重复的节点！！
+
+
+            int levelSize = queue.size();  // 当前层的节点数
+            for (int i = 0; i < levelSize; i++) {  // 处理当前层所有节点
+                String current = queue.poll();
+                if (current.equals(endStr)) {
+                    return level;  // 找到目标，返回当前层数
+                }
+                // 生成所有可能的相邻单词
+                char[] chars = current.toCharArray();
+                for (int j = 0; j < chars.length; j++) {
+                    char originalChar = chars[j];
+                    for (char c = 'a'; c <= 'z'; c++) {
+                        chars[j] = c;
+                        String neighbor = new String(chars);
+                        if (dict.contains(neighbor) && !visited.contains(neighbor)) {
+                            visited.add(neighbor);
+                            queue.offer(neighbor);
+                        }
+                    }
+                    chars[j] = originalChar;  // 恢复字符
+                }
+            }
+            level++;  // 进入下一层
+        }
+        return 0;  // 无解
+    }
+
+
 }
