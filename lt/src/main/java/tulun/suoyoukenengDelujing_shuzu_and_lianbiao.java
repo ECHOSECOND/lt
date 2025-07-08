@@ -11,7 +11,12 @@ public class suoyoukenengDelujing_shuzu_and_lianbiao {
     private boolean[] visited;
 
     /**
-     * 1. 数组+链表的方式
+     * 1. 数组+链表的方式 【说白了就是 二维数组 或者 嵌套的数组 或者 嵌套的list】
+     *
+     *  嵌套结构的第一层i是第i个节点，第二层是该i节点跟哪些节点有关联。
+     *
+     *  这种存储图的形式 是节省空间的。
+     *
      * @param graph
      * @return
      */
