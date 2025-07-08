@@ -6,6 +6,7 @@ public class tulun_bfs {
      *
      * 2. 在图遍历时，图中绝大多数 BFS 问题都需要 visited
      * 树遍历（无环）可以忽略 visited，择机加入其 左右子节点即可
+     * visited 是为了避免节点重复访问。
      *
      * 3. 啥时候 往访问过的节点集合 添加元素？ visited
      *
