@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class suoyoukenengDelujing {
+public class suoyoukenengDelujing_shuzu_and_lianbiao {
 
     private List<List<Integer>> res = new ArrayList();
     private List<Integer> path = new ArrayList();
@@ -112,7 +112,7 @@ public class suoyoukenengDelujing {
 
 
     public static void main(String[] args) {
-        suoyoukenengDelujing sol = new suoyoukenengDelujing();
+        suoyoukenengDelujing_shuzu_and_lianbiao sol = new suoyoukenengDelujing_shuzu_and_lianbiao();
         List<List<Integer>> res = sol.allPathsSourceTarget2(new int[][]{{1, 2}, {3}, {3}, {}});
         System.out.println(Arrays.deepToString(res.toArray()));
     }
