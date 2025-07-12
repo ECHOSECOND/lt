@@ -1,9 +1,7 @@
 package huisu;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * 剪枝是性能优化，去重是保证结果正确。
@@ -27,7 +25,7 @@ import java.util.List;
  * <p>
  * 在这个背景下，集合元素可能有重复/不重复的情况。
  */
-public class zuhe_zonghe2 {
+public class zuhe_zonghe2_di2zhong_quchong {
 
     private List<List<Integer>> res = new ArrayList<>();
     private List<Integer> path = new ArrayList<>();
@@ -47,6 +45,8 @@ public class zuhe_zonghe2 {
             return;
         }
 
+        Set<Integer> set = new HashSet<>();
+
         for (int i = index; i < candidates.length; i++) {
             // 2.这里去重/剪枝 通过used
 
@@ -54,9 +54,11 @@ public class zuhe_zonghe2 {
             // 主要像同一个树枝上 1 2 2 不会影响 此时 used[i-1] = true 这种不用continue！
 
             // 4. 注意 i-1 要使用 需要i>=1
-            if (i >= 1 && candidates[i] == candidates[i - 1] && !used[i - 1]) {
+            if ( i>=1 && candidates[i] == candidates[i - 1] && set.contains(candidates[i])) {
                 continue;
             }
+
+            set.add(candidates[i]);
 
             // 3. 拉满 used、totol、path 以及其回溯。 注意图一定需要used 但是 回溯在组合情况下 已经不会重复使用 大多不会用到used 只不过这里要去重！
             used[i] = true;
@@ -78,7 +80,7 @@ public class zuhe_zonghe2 {
     }
 
     public static void main(String[] args) {
-        zuhe_zonghe2 z = new zuhe_zonghe2();
+        zuhe_zonghe2_di2zhong_quchong z = new zuhe_zonghe2_di2zhong_quchong();
         List<List<Integer>> res = z.combinationSum2(new int[]{10, 1, 2, 7, 6, 1, 5}, 8);
         System.out.println(Arrays.deepToString(res.toArray()));
     }
