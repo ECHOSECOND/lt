@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ziji {
+public class ziji1 {
 
     List<List<Integer>> res = new ArrayList<List<Integer>>();
 
@@ -43,7 +43,7 @@ public class ziji {
     }
 
     public static void main(String[] args) {
-        ziji z = new ziji();
+        ziji1 z = new ziji1();
         z.subsets(new int[]{1, 2, 3});
     }
 
