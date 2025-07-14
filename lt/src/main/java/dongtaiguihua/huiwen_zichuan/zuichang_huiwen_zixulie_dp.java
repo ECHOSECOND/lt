@@ -7,12 +7,16 @@ public class zuichang_huiwen_zixulie_dp {
      * 也就是 dp[i][j]是否为回文子串 不需要依赖 dp[i+1][j-1]
      * <p>
      * 只要i==j 直接+2
+     *
+     * 回文是开始、结束 i、j比较 是两维的！！！
      */
 
     public int longestPalindromeSubseq(String s) {
         // 因为dp[i][j] 还是依赖  dp[i+1][j-1] 从下往上 从左往右 一开始 i=s.length-1;j=i
 
         // 因为子串处理时，一开始i==j 单独处理 所以没有越界问题！
+
+        // 子序列是直接定义结果， 子串是定义的bool是否为回文串【先判断整体是不是回文串再计算】
 
         int[][] dp = new int[s.length()][s.length()];
         int max = 0;
