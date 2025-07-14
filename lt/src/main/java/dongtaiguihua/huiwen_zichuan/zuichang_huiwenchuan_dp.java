@@ -3,11 +3,10 @@ package dongtaiguihua.huiwen_zichuan;
 public class zuichang_huiwenchuan_dp {
     /**
      * 动规的想法跟 动规求回文串的个数一样，只不过在判断 [i,j] 为回文串的情况下
-     *
+     * <p>
      * 看看此时 i,j 是不是最长的 即可
-     *
+     * <p>
      * 也就是本质上都是求 回文子串问题！！！
-     *
      */
 
     public String longestPalindrome(String s) {
@@ -45,19 +44,29 @@ public class zuichang_huiwenchuan_dp {
             for (int j = i; j < m; j++) {
                 if (s.charAt(i) == s.charAt(j)) {
                     // 来得到是不是回文串。 只不过这里只是统计个数
-                    if (i==j){
+                    // 一个元素
+                    if (i == j) {
                         dp[i][j] = true;
                     }
-                    if (j-i==1){
+                    // 两个元素
+                    if (j - i == 1) {
                         dp[i][j] = true;
                     }
-                    if (j-i>1){
-                        dp[i][j] = dp[i+1][j-1];
+                    // 多个元素
+
+                    // 我们需要关注 i、j相同的情况下，子序列是不是也是回文的。 这样才能连续子串！！！
+
+                    // 但是如果是子序列的情况，没必要关心 子序列，只关注i、j相同即可。
+
+                    if (j - i > 1) {
+                        dp[i][j] = dp[i + 1][j - 1];
                     }
+                    // 在判断i、j这个区间的字符串是回文的情况下 才进行计算！！！
+
                     // 在判断是回文串的情况下 看 j-i+1长度是否超了res
-                    if (dp[i][j]){
-                        if (j-i+1>longest.length()){
-                            longest = s.substring(i, j+1);
+                    if (dp[i][j]) {
+                        if (j - i + 1 > longest.length()) {
+                            longest = s.substring(i, j + 1);
                         }
                         count++;
                     }
