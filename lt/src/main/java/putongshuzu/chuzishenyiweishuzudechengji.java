@@ -9,6 +9,10 @@ public class chuzishenyiweishuzudechengji {
 
         // 我们用一个变量记录 i 位置时 前面所有元素的乘积
         // 先用k再更新
+
+
+        // 当我们只依赖前面一个元素时，可以定义一个变量。先用后赋值。
+
         int k = nums[0];
         res[0] = 1;
         // 注意这里给 1-nums.length-1 全进行了赋值操作， nums[0] 其实还是 0
