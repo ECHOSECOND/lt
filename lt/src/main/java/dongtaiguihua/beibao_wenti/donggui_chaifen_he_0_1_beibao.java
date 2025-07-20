@@ -1,6 +1,6 @@
-package dongtaiguihua;
+package dongtaiguihua.beibao_wenti;
 
-public class donggui_chaifen_he {
+public class donggui_chaifen_he_0_1_beibao {
     /**
      * 拆分子集和
      */
