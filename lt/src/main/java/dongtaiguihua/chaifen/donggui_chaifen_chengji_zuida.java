@@ -1,6 +1,6 @@
-package dongtaiguihua;
+package dongtaiguihua.chaifen;
 
-public class chaifen_chengji_zuida {
+public class donggui_chaifen_chengji_zuida {
     public int integerBreak(int n) {
 
         // 1. 如何将i拆分呢。 i可以是 pair对: left：从1开始到i-1（j）；right：i-j
@@ -30,7 +30,7 @@ public class chaifen_chengji_zuida {
     }
 
     public static void main(String[] args) {
-        chaifen_chengji_zuida c = new chaifen_chengji_zuida();
+        donggui_chaifen_chengji_zuida c = new donggui_chaifen_chengji_zuida();
         System.out.println(c.integerBreak(10));
     }
 

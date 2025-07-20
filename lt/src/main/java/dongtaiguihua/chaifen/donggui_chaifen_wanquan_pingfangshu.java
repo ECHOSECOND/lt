@@ -1,8 +1,8 @@
-package dongtaiguihua;
+package dongtaiguihua.chaifen;
 
 import java.util.Arrays;
 
-public class donggui_wanquan_pingfangshu {
+public class donggui_chaifen_wanquan_pingfangshu {
     /**
      * 平方数
      *
@@ -32,7 +32,7 @@ public class donggui_wanquan_pingfangshu {
     }
 
     public static void main(String[] args) {
-        donggui_wanquan_pingfangshu obj = new donggui_wanquan_pingfangshu();
+        donggui_chaifen_wanquan_pingfangshu obj = new donggui_chaifen_wanquan_pingfangshu();
         System.out.println(obj.numSquares(12));
     }
 
