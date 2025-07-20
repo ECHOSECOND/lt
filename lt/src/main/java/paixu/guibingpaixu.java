@@ -31,6 +31,7 @@ public class guibingpaixu {
         guibingsourt(nums, start, mid);
         guibingsourt(nums, mid + 1, end);
 
+        // 分为四个节点；两段，每段有起始位置和终止位置
 
         int leftStart = start;
         int leftEnd = mid;

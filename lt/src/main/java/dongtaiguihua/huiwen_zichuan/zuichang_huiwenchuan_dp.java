@@ -40,6 +40,18 @@ public class zuichang_huiwenchuan_dp {
 
         boolean[][] dp = new boolean[m][m];
 
+        /**
+         * 1.注意回文这种 是dp[i][j] 要依赖 dp[i+1][j-1] 然后画四格子
+         *
+         * 决定遍历顺序
+         *
+         * 要确定好遍历顺序！！！
+         *
+         * 2. 子串问题 无论回文还是其它 都是只关注一个状态！！！
+         *
+         * 因为要求连续。 子序列 可以是左上看一下取max
+         */
+
         for (int i = m - 1; i >= 0; i--) {
             for (int j = i; j < m; j++) {
                 if (s.charAt(i) == s.charAt(j)) {
